@@ -119,11 +119,13 @@ export class Nepse {
 
   async requestPOSTAPI(url, payloadGenerator) {
     try {
+      const payload = { id: await payloadGenerator() };
       const response = await fetch(this.getFullUrl(url), this.getFetchOptions({
         method: "POST",
         headers: await this.getAuthorizationHeaders(),
-        body: JSON.stringify({ id: await payloadGenerator() })
+        body: JSON.stringify(payload)
       }));
+      console.log("Response status:", response.status);
       this.handleResponseStatus(response.status);
       return await response.json();
     } catch (error) {
@@ -391,6 +393,20 @@ export class Nepse {
     const normalizedSymbol = symbol.toUpperCase();
     const companyIdMap = await this.getSecurityIDKeyMap();
     const url = `${this.apiEndpoints["market-depth"]}${companyIdMap[normalizedSymbol]}/`;
+    return this.requestGETAPI(url);
+  }
+
+  async getCorporateActions(symbol) {
+    const normalizedSymbol = symbol.toUpperCase();
+    const companyIdMap = await this.getSecurityIDKeyMap();
+    const url = `${this.apiEndpoints["corporate-actions"]}${companyIdMap[normalizedSymbol]}/`;
+    return this.requestGETAPI(url);
+  }
+
+  async getDividends(symbol) {
+    const normalizedSymbol = symbol.toUpperCase();
+    const companyIdMap = await this.getSecurityIDKeyMap();
+    const url = `${this.apiEndpoints.dividends}${companyIdMap[normalizedSymbol]}`;
     return this.requestGETAPI(url);
   }
 }

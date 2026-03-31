@@ -37,5 +37,7 @@
     "floor_sheet": "/api/nots/nepse-data/floorsheet",
     "todays_price": "/api/nots/nepse-data/today-price",
     "live-market": "/api/nots/lives-market",
-    "market-depth": "/api/nots/nepse-data/marketdepth/"
+    "market-depth": "/api/nots/nepse-data/marketdepth/",
+    "corporate-actions": "/api/nots/security/corporate-actions/",
+    "dividends": "/api/nots/application/dividend/"
 }
