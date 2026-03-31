@@ -1,0 +1,27 @@
+{
+  "name": "nepse-unofficial-api-js",
+  "version": "0.1.0",
+  "description": "Unofficial JavaScript library for Nepal Stock Exchange APIs",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test",
+    "demo": "node demo.mjs"
+  },
+  "keywords": [
+    "nepse",
+    "nepalstock",
+    "stock",
+    "api"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "undici": "^6.24.1"
+  }
+}
