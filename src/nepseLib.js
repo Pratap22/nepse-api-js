@@ -219,7 +219,8 @@ export class Nepse {
   }
 
   async getPriceVolumeHistory(businessDate = null) {
-    const url = `${this.apiEndpoints.todays_price}?&size=500&businessDate=${businessDate}`;
+    const normalizedBusinessDate = businessDate ? isoDate(new Date(businessDate)) : isoDate(new Date());
+    const url = `${this.apiEndpoints.todays_price}?&size=500&businessDate=${normalizedBusinessDate}`;
     return this.requestPOSTAPI(url, () => this.getPOSTPayloadIDForFloorSheet());
   }
 
