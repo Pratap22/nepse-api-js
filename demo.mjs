@@ -19,5 +19,5 @@ for (const [index, signature] of signatures.entries()) {
   console.log(`${index + 1}. ${signature}`);
 }
 
-const abc = await nepse.getPriceVolumeHistory();
-console.log("Summary:", abc);
+const abc = await nepse.getCompanyHistoricalGraphData("NABIL");
+console.log("Summary:", abc.length);

@@ -355,6 +355,12 @@ export class Nepse {
     return this.requestPOSTAPI(`${this.apiEndpoints.company_daily_graph}${companyId}`, () => this.getPOSTPayloadIDForScrips());
   }
 
+  async getCompanyHistoricalGraphData(symbol) {
+    const normalizedSymbol = symbol.toUpperCase();
+    const companyId = (await this.getSecurityIDKeyMap())[normalizedSymbol];
+    return this.requestPOSTAPI(`${this.apiEndpoints.company_historical_data}${companyId}`, () => this.getPOSTPayloadIDForScrips());
+  }
+
   async getCompanyDetails(symbol) {
     const normalizedSymbol = symbol.toUpperCase();
     const companyId = (await this.getSecurityIDKeyMap())[normalizedSymbol];
