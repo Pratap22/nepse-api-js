@@ -39,6 +39,10 @@ The `Nepse` class mirrors the original Python library methods, including:
 
 All methods are async and return Promises.
 
+## API Reference
+
+Response structures for each `Nepse` method live here: `src/nepseLib.response-examples.md`.
+
 ## Notes
 
 - Requires Node.js `18+` (uses built-in `fetch` and `WebAssembly`).
