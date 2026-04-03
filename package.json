@@ -1,5 +1,5 @@
 {
-  "name": "nepse-unofficial-api-js",
+  "name": "nepse-api-js",
   "version": "0.1.0",
   "description": "Unofficial JavaScript library for Nepal Stock Exchange APIs",
   "type": "module",
