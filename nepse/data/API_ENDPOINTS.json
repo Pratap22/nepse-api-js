@@ -40,5 +40,6 @@
     "market-depth": "/api/nots/nepse-data/marketdepth/",
     "corporate-actions": "/api/nots/security/corporate-actions/",
     "dividends": "/api/nots/application/dividend/",
-    "company_historical_data": "/api/nots/market/graphdata/"
+    "company_historical_data": "/api/nots/market/graphdata/",
+    "reports": "/api/nots/application/reports"
 }

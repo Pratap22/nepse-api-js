@@ -36,6 +36,7 @@ The `Nepse` class mirrors the original Python library methods, including:
 - company/security list and ID maps
 - floorsheet and symbol-specific floorsheet
 - symbol market depth
+- `getReports(symbol)` — NOTS application reports for a security (`/api/nots/application/reports/{securityId}/`)
 
 All methods are async and return Promises.
 

@@ -416,4 +416,11 @@ export class Nepse {
     const url = `${this.apiEndpoints.dividends}${companyIdMap[normalizedSymbol]}`;
     return this.requestGETAPI(url);
   }
+
+  async getReports(symbol) {
+    const normalizedSymbol = symbol.toUpperCase();
+    const companyIdMap = await this.getSecurityIDKeyMap();
+    const url = `${this.apiEndpoints.reports}/${companyIdMap[normalizedSymbol]}/`;
+    return this.requestGETAPI(url);
+  }
 }

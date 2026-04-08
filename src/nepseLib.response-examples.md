@@ -615,6 +615,54 @@ Example (array with 1 item, subset):
 ]
 ```
 
+### `getReports(symbol)`
+- HTTP: `GET` `/api/nots/application/reports/{securityId}/` (security id from `getSecurityIDKeyMap()`)
+- Type: `array`
+- First item keys observed:
+  - `id`, `activeStatus`, `modifiedBy`, `modifiedDate`, `applicationType`, `applicationStatus`,
+    `companyNews`, `fiscalReport`, `applicationDocumentDetailsList`
+- When present, `fiscalReport` may include nested `quarterMaster`, `reportTypeMaster`, `financialYear`, and numeric fields such as `peValue`, `epsValue`, `paidUpCapital`, `profitAmount`, `netWorthPerShare`.
+
+Example (array with 1 item, subset):
+```json
+[
+  {
+    "id": 44405,
+    "activeStatus": "A",
+    "modifiedBy": "rita_listing",
+    "modifiedDate": "2026-02-01T09:57:58.253",
+    "applicationType": 111,
+    "applicationStatus": 3,
+    "companyNews": null,
+    "fiscalReport": {
+      "id": 6215,
+      "quarterMaster": {
+        "quarterName": "Second Quarter"
+      },
+      "reportTypeMaster": {
+        "reportName": "Quarterly Report"
+      },
+      "financialYear": {
+        "fyName": "2025-2026",
+        "fyNameNepali": "2082-2083"
+      },
+      "peValue": 13.91,
+      "epsValue": 35.04,
+      "paidUpCapital": 27056996729,
+      "profitAmount": 4759641000,
+      "netWorthPerShare": 235.64
+    },
+    "applicationDocumentDetailsList": [
+      {
+        "documentType": 54,
+        "submittedDate": "2026-01-29",
+        "filePath": "nabil_user/2026-01-29/Nabil Bank-2nd  Quarter Unaudited Financial Result_1769686597240.pdf"
+      }
+    ]
+  }
+]
+```
+
 ---
 
 ## Floorsheet endpoints
