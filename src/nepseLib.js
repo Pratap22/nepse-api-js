@@ -125,7 +125,6 @@ export class Nepse {
         headers: await this.getAuthorizationHeaders(),
         body: JSON.stringify(payload)
       }));
-      console.log("Response status:", response.status);
       this.handleResponseStatus(response.status);
       return await response.json();
     } catch (error) {
@@ -293,7 +292,6 @@ export class Nepse {
   }
 
   async getCompanyList() {
-    console.log("Getting company list");
     this.companyList = await this.requestGETAPI(this.apiEndpoints.company_list_url);
     return [...this.companyList];
   }
