@@ -37,8 +37,21 @@ The `Nepse` class mirrors the original Python library methods, including:
 - floorsheet and symbol-specific floorsheet
 - symbol market depth
 - `getReports(symbol)` — NOTS application reports for a security (`/api/nots/application/reports/{securityId}/`)
+- `getNewsAndAlerts()` — notices / news feed (`/api/nots/news/media/news-and-alerts`)
 
 All methods are async and return Promises.
+
+### Downloading files from `filePath`
+
+Several responses include a `filePath` string (for example `getNewsAndAlerts()` when `filePath` is not `null`, or documents under `getReports(symbol)` such as `applicationDocumentDetailsList[].filePath`). Those paths are not full URLs; NEPSE serves the binary at:
+
+`https://www.nepalstock.com/api/nots/security/fetchFiles?fileLocation=<filePath>`
+
+Build the query value with `encodeURIComponent(filePath)` so slashes and other characters are safe. Example for `filePath` `kul_rijal/2023-05-24/SIFC_1684909410151.pdf`:
+
+`https://www.nepalstock.com/api/nots/security/fetchFiles?fileLocation=kul_rijal%2F2023-05-24%2FSIFC_1684909410151.pdf`
+
+The response is usually a PDF or other document (not JSON). Use `fetch` with `arrayBuffer()` or `blob()` (and the same `Authorization: Salter …` header pattern as other NOTS calls if the server rejects anonymous requests), not `response.json()`.
 
 ## API Reference
 

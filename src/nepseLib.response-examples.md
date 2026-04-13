@@ -663,6 +663,30 @@ Example (array with 1 item, subset):
 ]
 ```
 
+### `getNewsAndAlerts()`
+- HTTP: `GET` `/api/nots/news/media/news-and-alerts` (see `API_ENDPOINTS.json`)
+- Type: `array`
+- Item keys: `id`, `messageBody`, `messageTitle`, `encryptedId`, `expiryDate`, `filePath`, `remarks`, `addedDate`, `modifiedDate`, `approvedDate`
+- `messageBody` is HTML (often inline-styled) from the NEPSE notices UI; parse or strip tags if you need plain text.
+
+Example (array with 1 item; `messageBody` shortened):
+```json
+[
+  {
+    "id": 208690,
+    "messageBody": "<p><span style=\"color: rgb(47, 47, 47);\">17,84,688 Units Bonus Shares of </span>Shikhar Insurance Co. Ltd. (SICL)<span style=\"color: rgb(47, 47, 47);\"> has been listed in NEPSE.</span></p>",
+    "messageTitle": "Listing 6% Bonus Shares of Shikhar Insurance Co. Ltd. (SICL)",
+    "encryptedId": null,
+    "expiryDate": "2026-04-10",
+    "filePath": null,
+    "remarks": "",
+    "addedDate": "2026-04-10T15:10:45.507",
+    "modifiedDate": "2026-04-10T15:10:45.507",
+    "approvedDate": "2026-04-10T15:11:33.007"
+  }
+]
+```
+
 ---
 
 ## Floorsheet endpoints

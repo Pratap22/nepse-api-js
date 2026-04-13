@@ -41,5 +41,6 @@
     "corporate-actions": "/api/nots/security/corporate-actions/",
     "dividends": "/api/nots/application/dividend/",
     "company_historical_data": "/api/nots/market/graphdata/",
-    "reports": "/api/nots/application/reports"
+    "reports": "/api/nots/application/reports",
+    "news_and_alerts": "/api/nots/news/media/news-and-alerts"
 }

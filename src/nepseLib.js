@@ -421,4 +421,8 @@ export class Nepse {
     const url = `${this.apiEndpoints.reports}/${companyIdMap[normalizedSymbol]}/`;
     return this.requestGETAPI(url);
   }
+
+  async getNewsAndAlerts() {
+    return this.requestGETAPI(this.apiEndpoints.news_and_alerts);
+  }
 }
